@@ -21,10 +21,10 @@ async function getImages() {
   );
   const parcedData = await data.json();
   const { images } = parcedData;
-  console.log(images);
+  console.log('images', images);
 
   const imageBaseURL = `${images.secure_base_url}${
-    images.profile_sizes[images.poster_sizes.length - 1]
+    images.profile_sizes[images.profile_sizes.length - 1]
   }`;
   console.log(imageBaseURL);
   return imageBaseURL;
@@ -57,12 +57,12 @@ getImages();
 
 async function createMarkup(data) {
   console.log('data results', data);
-  //   const imageBaseURL = await getImages();
+  const imageBaseURL = await getImages();
 
   const genreNames = await getGenres();
   console.log('genreNames in markup', genreNames);
 
-  const imageBaseURL = 'https://image.tmdb.org/t/p/original';
+  // const imageBaseURL = 'https://image.tmdb.org/t/p/original';
   console.log(imageBaseURL);
 
   const markup = data
